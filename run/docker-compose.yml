@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  nginx:
+    image: health-monitoring-app
+    container_name: health_web
+    ports:
+      - "8080:80"
+
+  mysql-server:
+    image: secode/dockercon:mysqlcon
+    container_name: mysql-server
+    environment:
+      MYSQL_ROOT_PASSWORD: test123
+      MYSQL_DATABASE: healthdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-conf:/etc/mysql/conf.d
+    networks:
+      - smarthealthnet
+
+  phpmyadmin:
+    image: secode/dockercon:pma
+    container_name: padmin
+    environment:
+      PMA_HOST: mysql-server
+      MYSQL_ROOT_PASSWORD: test123
+    ports:
+      - "8000:80"
+    networks:
+      - smarthealthnet
+
+  smarthealthsystem:
+    image: secode/dockercon:smarthealtsystemApi
+    container_name: smarthealthsystem_3
+    environment:
+      - DB_CONNECTION_STRING=server=mysql-server;port=3306;database=healthdb;user=root;password=test123
+    ports:
+      - "5002:8081"
+    networks:
+      - smarthealthnet
+
+networks:
+  smarthealthnet:
+    driver: bridge
