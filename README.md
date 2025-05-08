@@ -118,7 +118,7 @@ services:
     container_name: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: test123
       MYSQL_DATABASE: healthdata
     ports:
       - "3306:3306"
@@ -311,7 +311,7 @@ services:
     container_name: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: test123
       MYSQL_DATABASE: healthdata
     ports:
       - "3306:3306"
