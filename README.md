@@ -158,6 +158,24 @@ docker-compose up -d
 
 ---
 
+# 🛠️ Database and Table Creation
+
+You can manually create your database and the required table by pasting the following SQL script into **phpMyAdmin > SQL** tab:
+
+```sql
+CREATE DATABASE IF NOT EXISTS healthdb;
+
+USE healthdb;
+
+CREATE TABLE IF NOT EXISTS health_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    heart_rate INT,
+    blood_pressure VARCHAR(20),
+    temperature FLOAT,
+    recorded_at DATETIME
+);
+
 ## 📈 Features
 
 * ✅ Real-time health data monitoring
@@ -350,6 +368,50 @@ docker-compose up -d
 ```
 
 ---
+
+### 🛠️ Veritabanı ve Tablo Oluşturma
+
+Aşağıdaki SQL sorgusunu **phpMyAdmin > SQL** sekmesine yapıştırarak veritabanınızı ve gerekli tabloyu manuel olarak oluşturabilirsiniz:
+
+```sql
+CREATE DATABASE IF NOT EXISTS healthdb;
+
+USE healthdb;
+
+CREATE TABLE IF NOT EXISTS health_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    heart_rate INT,
+    blood_pressure VARCHAR(20),
+    temperature FLOAT,
+    recorded_at DATETIME
+);
+```
+
+### 📌 Açıklamalar
+
+* `CREATE DATABASE IF NOT EXISTS healthdb;`:
+  `healthdb` adlı veritabanı daha önce yoksa oluşturur. Bu adım veritabanının çakışmasını engeller.
+
+* `USE healthdb;`:
+  Oluşturulan/verilen veritabanını aktif olarak seçer.
+
+* `CREATE TABLE IF NOT EXISTS health_data (...);`:
+  Sağlık verilerini saklayacak olan `health_data` tablosunu oluşturur. Tablo sütunları şunlardır:
+
+| Sütun Adı        | Veri Tipi   | Açıklama                                    |
+| ---------------- | ----------- | ------------------------------------------- |
+| `id`             | INT         | Otomatik artan, her kayıt için benzersiz ID |
+| `user_id`        | INT         | Veriyi gönderen kullanıcının kimliği        |
+| `heart_rate`     | INT         | Kalp atış hızı (bpm)                        |
+| `blood_pressure` | VARCHAR(20) | Kan basıncı (örnek: 120/80)                 |
+| `temperature`    | FLOAT       | Vücut sıcaklığı (°C)                        |
+| `recorded_at`    | DATETIME    | Verinin kaydedildiği tarih ve saat          |
+
+Bu adımlar tamamlandığında sistem sağlık verilerini bu tabloya kaydedebilecek hale gelir.
+
+---
+
 
 ## 📈 Özellikler
 
