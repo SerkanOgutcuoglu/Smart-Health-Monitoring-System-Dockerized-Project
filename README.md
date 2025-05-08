@@ -1,4 +1,4 @@
-# Smart-Health-Monitoring-System-Dockerized-Project
+
 # 📦 Smart Health Monitoring System – Dockerized Project
 
 ## 🩺 Overview
