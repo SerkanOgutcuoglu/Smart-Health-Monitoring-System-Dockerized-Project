@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "SmartHealthMonitoringSystem.Controllers.HealthDataController",
+    "Method": "GetAllPatientsHealthData",
+    "RelativePath": "api/HealthData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
