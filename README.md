@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS health_data (
     temperature FLOAT,
     recorded_at DATETIME
 );
-
+```
 ## 📈 Features
 
 * ✅ Real-time health data monitoring
